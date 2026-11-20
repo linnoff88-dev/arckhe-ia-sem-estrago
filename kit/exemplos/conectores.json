@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "ask": [
+      "mcp__*__*send*",
+      "mcp__*__*delete*",
+      "mcp__*__*trash*",
+      "mcp__*__*remove*",
+      "mcp__*__*publish*"
+    ]
+  }
+}

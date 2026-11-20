@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "Antes de o Claude encerrar, confira o texto que ele entregou nesta tarefa (relatório, proposta, post). Regras de pronto: 1) toda afirmação de fato tem link de fonte; 2) todo número que aparece no texto bate com a planilha dados.csv da pasta do projeto; 3) nenhum trecho ficou como 'TODO' ou '[preencher]'. Se a tarefa não produziu texto, aprove. Responda {\"ok\": true} se tudo passa, ou {\"ok\": false, \"reason\": \"o que falta, item por item\"}. Contexto: $ARGUMENTS",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+# CLAUDE.md enxuto — só o que o Claude não descobre lendo o código
+
+Teste de cada linha: "o Claude descobriria isso lendo o código?" Se sim, apague.
+Sem palavras de alarme em caixa alta: nos modelos de hoje isso gera mais chamadas de ferramenta e resultado pior.
+Auditoria pronta no Claude Code: `/doctor prompt-audit`.
+
+## Onde mora o que não está no código
+- Manual do negócio: `docs/wiki/`
+- Identidade visual e textos aprovados: `marca/`
+- Contas e acessos: pergunte antes; segredos ficam fora do repo.
+
+## Como é pronto aqui
+- Checagem: `.claude/pronto.cmd` (o hook cobra sozinho).
+
+## Decisões que o código não conta
+- Clientes antigos ainda usam `src/legado/` pelo app móvel: não remover.

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La IA trabaja sola y no causa daños irreparables — kit gratis para Claude Code</title>
+<meta name="description" content="Kit gratis para Claude Code: un bloqueo impide lo irreversible (borrar carpetas, leer contraseñas) y una prueba evita que la IA diga «listo» antes de tiempo. Puedes alejarte.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/ia-sem-estrago/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/ia-sem-estrago/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/ia-sem-estrago/guia/es/">
+<meta property="og:title" content="IA sin daños — la IA trabaja sola y no causa daños irreparables">
+<meta property="og:description" content="La IA trabaja sola y no causa daños irreparables. Kit gratis para Claude Code.">
+<meta property="og:image" content="https://inematds.github.io/ia-sem-estrago/guia/assets/banner-es.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --fill:#FACC15; --tint:rgba(250,204,21,.12); --ok:#7CE0C6; --bad:#F0918A;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --fill:#FACC15; --tint:#FEF9C3; --ok:#0E6B55; --bad:#A83426;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light pre .k{color:#f0c070}
+  body.light nav{background:rgba(246,247,249,.85)}
+  body.light .amb{color:var(--txt);background:linear-gradient(transparent 55%,#FACC15 55%)}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  body.light main a:not(.btn),body.light footer a{color:#854d0e;text-decoration:underline;text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  p code,li code,td code{font-size:.9em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:.05em .35em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb);white-space:nowrap}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:var(--tint)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  nav .links a.sec{white-space:nowrap}
+  @media(max-width:1360px){nav .links a.opt{display:none}}
+  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.15rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:44ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.95rem;margin:0}
+  .card p+p{margin-top:.6em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0;margin:.4em 0 0}
+  pre .c{color:#7d7d8a} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:28px}
+  .step>div{min-width:0}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--fill);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .5em}
+  .quem{display:inline-block;font-family:Sora;font-size:.75rem;letter-spacing:.06em;color:var(--txt);background:var(--tint);border:1px solid var(--line);border-radius:999px;padding:.1em .7em;margin-left:.5em;vertical-align:middle;font-weight:600}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* números */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  @media(max-width:720px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font:800 clamp(1.9rem,4vw,2.6rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
+  body.light .stat b{color:var(--txt)}
+  .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
+  /* trocas */
+  .troca{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;padding:26px 0;border-top:1px solid var(--line)}
+  .troca:first-of-type{border-top:none}
+  .troca .n{width:64px;height:64px;border-radius:14px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;font:800 1.6rem Sora,sans-serif;color:var(--amb)}
+  body.light .troca .n{color:var(--txt);background:var(--fill);border-color:var(--fill)}
+  .troca h3{font-size:1.3rem;margin-bottom:.35em}
+  .troca p{margin:.35em 0;max-width:72ch}
+  .troca .ex{margin-top:.8em;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--fill);border-radius:10px;padding:12px 16px;font-size:.95rem;color:var(--mut);max-width:76ch}
+  .troca .ex b{color:var(--txt)}
+  @media(max-width:540px){.troca{grid-template-columns:1fr}}
+  /* três finais */
+  .vs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;max-width:900px}
+  @media(max-width:720px){.vs{grid-template-columns:1fr}}
+  .vs div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.93rem}
+  .vs strong{display:block;font-family:Sora;margin-bottom:.25em}
+  .vs .r{display:block;margin-top:.5em;font-weight:600}
+  .vs .r.bad{color:var(--bad)} .vs .r.ok{color:var(--ok)}
+  .card ul{margin:8px 0 0;padding-left:20px}.card li{margin:5px 0}
+  /* prova */
+  .prova{background:var(--card);border:1px solid var(--amb);border-radius:16px;padding:26px 26px 22px;margin-top:6px}
+  body.light .prova{border-color:#EAB308}
+  .tl{list-style:none;margin:0;padding:0;counter-reset:t}
+  .tl li{position:relative;padding:0 0 18px 48px;counter-increment:t}
+  .tl li::before{content:counter(t);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:10px;background:var(--fill);color:#1a1206;font:800 .95rem/32px Sora,sans-serif;text-align:center}
+  .tl li::after{content:"";position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--line)}
+  .tl li:last-child::after{display:none}
+  .tl b{font-family:Sora}
+  blockquote{margin:6px 0 0;padding:14px 18px;border-left:3px solid var(--fill);background:var(--bg2);border-radius:0 10px 10px 0;font-size:1.02rem}
+  .prova .rod{font-size:.86rem;color:var(--mut);margin-top:14px}
+  /* parte técnica */
+  .techhead{background:var(--bg2);border-top:3px solid var(--fill);padding:58px 0 8px}
+  .techhead h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:.3em 0 0}
+  .techhead .sub{color:var(--mut);margin:.6em 0 1.2em;max-width:66ch}
+  .techzone{background:var(--bg2)}
+  .techzone .card{background:var(--card)}
+  .tbl{width:100%;border-collapse:collapse;font-size:.93rem}
+  .tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{font-family:Sora;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  @media(max-width:600px){.tbl thead{display:none} .tbl tr{display:block;border-bottom:1px solid var(--line);padding:6px 0} .tbl tr:last-child{border-bottom:none} .tbl td{display:block;border:none;padding:4px 14px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🛡️</span> IA sin daños</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#explicado">Lo que ganas</a>
+    <a class="sec" href="#dia">En tu día</a>
+    <a class="sec opt" href="#como">Cómo funciona</a>
+    <a class="sec" href="#lista">Lista clara</a>
+    <a class="sec" href="#comecar">Cómo empezar</a>
+    <a class="sec" href="#base">Base Anthropic</a>
+    <a class="sec opt" href="#prova">La prueba</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/ia-sem-estrago" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Basado en la documentación y el trabajo de los ingenieros de Anthropic · kit gratis</span>
+      <h1>La IA trabaja sola y <span class="amb">no causa daños irreparables</span></h1>
+      <p class="lead">Le pides una tarea y te ocupas de otra cosa. Cuando vuelves, está hecha y probada. No se ha borrado ninguna carpeta, no se ha leído ninguna contraseña y Claude no ha dicho «listo» antes de tiempo.</p>
+      <div class="cta">
+        <a class="btn" href="#explicado">Lo que ganas</a>
+        <a class="btn ghost" href="#comecar">Cómo empezar</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="IA sin daños: la IA trabaja sola y no causa daños irreparables"></figure>
+  </div>
+</header>
+
+<main>
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En una frase</span>
+  <p><strong>El kit añade dos protecciones a Claude Code:</strong> un <strong>bloqueo</strong> que impide lo irreversible (borrar una carpeta, leer una contraseña, forzar un envío con git), en cualquier modo, y una <strong>prueba</strong> que no deja que Claude se detenga hasta que la tarea pase. Así puedes desactivar «permitir» y alejarte. No hemos inventado nada: cada parte sigue la <strong>documentación oficial de Claude Code</strong> y lo que los <strong>ingenieros de Anthropic</strong>, la empresa que hace Claude, publicaron y recomiendan (<a href="#base">ver las fuentes</a>).</p>
+  <figure style="margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="IA sin daños: el problema de vigilar a la IA, qué cambia en tu día, el bloqueo de lo irreversible, la prueba antes de decir listo, pide a la IA que lo analice, gratis en inema.club" loading="lazy" style="width:100%;display:block"></figure>
+</div></section>
+
+<section id="explicado"><div class="wrap">
+  <span class="chip">Lo que ganas</span>
+  <h2>Antes y después del <span class="amb">kit</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>😩 Sin el kit</h3><p>Te quedas frente a la pantalla y haces clic en «permitir» con cada comando. De tanto hacer clic, dejas de leer. En el estudio del equipo de Claude Code, quienes aprobaban uno por uno detectaron solo el <strong>14 %</strong> de los comandos peligrosos.</p><p>Claude dice «listo» y el error aparece después, cuando haces una prueba o se queja un cliente.</p></div>
+    <div class="card"><h3>😌 Con el kit</h3><p>No haces clic en nada y te ocupas de otra cosa. Lo irreversible queda bloqueado <strong>siempre</strong>, en cualquier modo, aunque la IA lo intente.</p><p>Claude solo se detiene cuando la prueba pasa. Si falla, vuelve y lo corrige.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h3>⏱️ Recuperas tu tiempo</h3><p>Dejas de cuidar a la IA. La tarea avanza mientras haces otra cosa.</p></div>
+    <div class="card"><h3>🔒 Nada irreversible</h3><p>Los errores de código se pueden deshacer con git. Una carpeta borrada, una contraseña filtrada o el historial de git sobrescrito no se pueden recuperar. Eso es lo que queda bloqueado.</p></div>
+    <div class="card"><h3>✅ Entrega probada</h3><p>«Listo» significa que está listo. Dejas de descubrir errores al final.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h3>👤 Para quién</h3><p>Para quienes usan Claude Code a diario, con código o con texto. Para instalarlo necesitas Claude Code y Python 3.</p></div>
+    <div class="card"><h3>🧪 Probado de verdad</h3><p>Escondimos un error en el código y solo le pedimos a Claude: «di listo». La prueba lo detuvo. Encontró el error, lo corrigió y solo entonces terminó (<a href="#prova">ver la prueba</a>).</p></div>
+    <div class="card"><h3>🎁 Gratis</h3><p>El kit en GitHub, esta guía en portugués, inglés y español, y todo basado en lo que Anthropic publica y recomienda (<a href="#base">fuentes</a>).</p></div>
+  </div>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">En video</span>
+  <h2>Mira el kit explicado en pocos minutos</h2>
+  <p class="sub">Dos videos cortos con el mismo kit: elige tu punto de partida. (videos en portugués, con subtítulos)</p>
+  <div class="grid g2">
+    <div class="card"><h3>🎬 Para quienes están empezando</h3><div style="position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;margin-top:10px"><iframe src="https://www.youtube-nocookie.com/embed/JBiVZj8z-Ms" title="Para quienes están empezando" style="position:absolute;inset:0;width:100%;height:100%;border:0" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+    <div class="card"><h3>🎬 Para quienes ya usan Claude Code</h3><div style="position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;margin-top:10px"><iframe src="https://www.youtube-nocookie.com/embed/uBUpckFw1Xg" title="Para quienes ya usan Claude Code" style="position:absolute;inset:0;width:100%;height:100%;border:0" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+  </div>
+</div></section>
+
+<section id="base"><div class="wrap">
+  <span class="chip">De dónde viene</span>
+  <h2>No es invento nuestro: es lo que <span class="amb">recomienda Anthropic</span></h2>
+  <p class="sub">Anthropic es la empresa que hace Claude. El kit reúne en un solo lugar, listo para usar, lo que publicaron sus ingenieros y lo que enseña la documentación oficial de Claude Code.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🎤 Los ingenieros de Claude Code</h3><p>En una charla, Lydia Hallie, del equipo que hace Claude Code, mostró cómo trabajan: dejan de vigilar, bloquean lo irreversible y exigen una prueba antes de decir «listo». Así pasaron de <strong>2.500 a más de 30.000</strong> cambios de código al día.</p><p><a href="https://www.youtube.com/watch?v=vlfCjWuv4es" target="_blank" rel="noopener">Ver la charla</a></p></div>
+    <div class="card"><h3>📊 Lo que publicó Anthropic</h3><p>Quienes aprueban todo a mano terminan aceptando el <strong>93 %</strong> de las solicitudes: el cansancio hace que dejen de leer. Sus registros internos también incluyen casos reales de IA que borró ramas del proyecto, envió una clave de acceso y modificó la base de datos de producción.</p><p><a href="https://www.anthropic.com/research/claude-code-auto-mode" target="_blank" rel="noopener">Artículo: cómo creamos el modo automático</a></p></div>
+    <div class="card"><h3>📦 El entorno aislado</h3><p>Anthropic también mostró que, con el entorno aislado de Claude Code (el sandbox), las solicitudes de permiso bajaron un <strong>84 %</strong> y la seguridad mejoró. El kit ya lo activa.</p><p><a href="https://www.anthropic.com/research/claude-code-sandboxing" target="_blank" rel="noopener">Artículo: más seguridad para Claude Code con sandbox</a></p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>📚 Cada parte del kit, en la documentación oficial</h3><p><strong>El bloqueo</strong> usa las reglas de permisos de Claude Code (<a href="https://code.claude.com/docs/en/permissions" target="_blank" rel="noopener">Permisos</a>). <strong>El entorno aislado</strong> es el sandbox (<a href="https://code.claude.com/docs/en/sandboxing" target="_blank" rel="noopener">Sandbox</a>). <strong>La prueba antes de decir «listo»</strong> es un gancho que se activa cuando la IA intenta terminar (<a href="https://code.claude.com/docs/en/hooks" target="_blank" rel="noopener">Hooks</a>). Y las instrucciones siguen las <a href="https://code.claude.com/docs/en/best-practices" target="_blank" rel="noopener">buenas prácticas de Claude Code</a>. Todo comprobado el 17/11/2026.</p></div>
+  <p class="fonte">Las cifras del 14 % y el 89 % de la charla (personas que aprueban una por una frente al modo automático) las presentó Lydia Hallie y no están publicadas en la página de Anthropic. Las cifras del 93 % y el 84 % sí aparecen en los artículos oficiales.</p>
+</div></section>
+
+<section id="dia"><div class="wrap">
+  <span class="chip">En tu día a día</span>
+  <h2>Cómo cambia tu <span class="amb">día</span></h2>
+  <p class="sub">No necesitas programar para notar la diferencia. Mira cuatro situaciones comunes de quienes usan IA para trabajar.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🗂️ «Organiza los archivos del proyecto»</h3><p><strong>Hoy:</strong> miras con miedo a que la IA borre la carpeta equivocada.</p><p><strong>Con el kit:</strong> mueve, cambia el nombre y ordena los archivos. Borrar una carpeta entera de una vez está bloqueado, así que no ocurre lo peor.</p></div>
+    <div class="card"><h3>🌐 «Arregla el formulario del sitio»</h3><p><strong>Hoy:</strong> la IA dice «listo», revisas y el formulario sigue roto. Se lo pides una y otra vez.</p><p><strong>Con el kit:</strong> antes de detenerse, una prueba completa el formulario. Si falla, vuelve y lo corrige. Recibes un «listo» probado.</p></div>
+    <div class="card"><h3>🔑 «Conecta el sistema a la nueva API»</h3><p><strong>Hoy:</strong> la contraseña de la API está en un archivo del proyecto y esperas que la IA no la lea ni la envíe fuera.</p><p><strong>Con el kit:</strong> los archivos con contraseñas y tus claves de acceso quedan fuera de su alcance. Hace el trabajo sin ver la contraseña.</p></div>
+    <div class="card"><h3>📊 «Prepara el informe del mes»</h3><p><strong>Hoy:</strong> la IA escribe bien, pero cambia un número e inventa una fuente. Solo te das cuenta en la reunión.</p><p><strong>Con el kit:</strong> antes de entregarlo, otra IA verifica el texto con tu hoja de cálculo. Lo probamos: el informe decía 100 y la hoja de cálculo, 120. La IA fue detenida, lo corrigió a 120 y añadió el enlace a la fuente.</p></div>
+  </div>
+  <div class="prova" style="margin-top:22px">
+    <ol class="tl">
+      <li><b>9:00 · pides la tarea</b><br><span class="mut">y explicas qué significa «listo»: «el formulario se envía y llega el correo».</span></li>
+      <li><b>9:05 · te ocupas de otra cosa</b><br><span class="mut">una reunión, el almuerzo, otro trabajo. No hay ningún botón de «permitir» esperándote.</span></li>
+      <li><b>10:00 · vuelves</b><br><span class="mut">la tarea está hecha, la prueba pasó y no se tocó nada irreversible.</span></li>
+    </ol>
+  </div>
+</div></section>
+
+
+<section id="como"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>Dos protecciones, <span class="amb">sin tecnicismos</span></h2>
+  <p class="sub">El kit no hace que la IA sea más inteligente. Le pone dos límites y eso te permite alejarte.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🔒 1. El bloqueo</h3><p>Es como la puerta cerrada de una habitación: la IA puede moverse por toda la casa, pero no entrar ahí. Para decidir qué queda bloqueado, el kit hace una sola pregunta: <strong>«Si la IA se equivoca una vez, ¿se puede deshacer?»</strong></p><p><strong>Se puede deshacer</strong> (editar un texto, cambiar un código que guarda el historial): queda permitido.<br><strong>No se puede</strong> (borrar una carpeta entera, leer contraseñas, borrar el historial del proyecto): queda bloqueado en cualquier modo, aunque la IA lo intente.</p></div>
+    <div class="card"><h3>✅ 2. La prueba antes de decir «listo»</h3><p>Es como el inspector al final de una línea de producción. Explicas una vez qué significa «listo» y una prueba lo comprueba cada vez que la IA intenta terminar.</p><p><strong>La pasa:</strong> entrega el trabajo.<br><strong>Falla:</strong> recibe el motivo, vuelve y lo corrige. Para no quedarse en un ciclo, tras 3 intentos se detiene y te avisa.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>🤝 ¿Y el resto?</h3><p>La IA hace sola todo lo que se puede deshacer, sin pedir permiso a cada paso: decide el modo automático de Claude Code. Si se equivoca, puedes deshacerlo. El kit no promete una IA que nunca se equivoca. Promete que no ocurran errores irreparables y que «listo» signifique listo.</p></div>
+</div></section>
+
+<section id="lista"><div class="wrap">
+  <span class="chip">Lista clara</span>
+  <h2>Lo que el kit <span class="amb">hace y no hace</span></h2>
+  <p class="sub">Todo de un vistazo. Si solo lees una parte de esta guía, lee esta.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🔒 Siempre queda bloqueado</h3><ul>
+      <li>Borrar una carpeta completa de una sola vez</li>
+      <li>Leer los archivos de contraseñas del proyecto (<code>.env</code>, <code>.env.local</code>, la carpeta <code>secrets</code>)</li>
+      <li>Leer tus claves de acceso de la computadora</li>
+      <li>Borrar o sobrescribir el historial del proyecto</li>
+    </ul></div>
+    <div class="card"><h3>✋ Pide tu confirmación</h3><ul>
+      <li>Enviar un correo o mensaje mediante un conector</li>
+      <li>Borrar o enviar a la papelera un archivo de Drive u otro servicio</li>
+      <li>Publicar algo fuera del proyecto</li>
+      <li>También se aplica a quienes abren Claude sin restricciones</li>
+    </ul></div>
+    <div class="card"><h3>✅ Se exige antes de decir «listo»</h3><ul>
+      <li>Código: pasan las pruebas del proyecto</li>
+      <li>Texto: toda afirmación tiene una fuente y cada número coincide con la hoja de cálculo</li>
+      <li>La IA muestra el resultado real de la comprobación, no un resumen</li>
+      <li>Después de 3 intentos sin pasar, se detiene y te avisa</li>
+    </ul></div>
+    <div class="card"><h3>🟢 Sigue por su cuenta</h3><ul>
+      <li>Crear, editar, mover y cambiar el nombre de archivos</li>
+      <li>Instalar lo que el proyecto ya requiere</li>
+      <li>Todo lo que se puede deshacer</li>
+    </ul></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>⚠️ Lo que el kit no hace</h3><ul>
+    <li>No evita errores que se pueden deshacer: tú los reviertes.</li>
+    <li>No protege lo que haces fuera de Claude Code.</li>
+    <li>No adivina qué significa «listo»: lo dices una vez y el kit lo exige siempre.</li>
+  </ul></div>
+</div></section>
+
+<section id="comecar"><div class="wrap">
+  <span class="chip">Cómo empezar</span>
+  <h2>Pídele a tu IA que <span class="amb">analice el kit</span></h2>
+  <p class="sub">No tienes que instalar nada a mano ni entender los archivos. La IA lee el kit, revisa tu proyecto y te dice qué te conviene.</p>
+  <div class="grid g3">
+    <div class="card"><h3>1. Abre la IA en tu proyecto</h3><p>Abre Claude Code o Codex en la carpeta del proyecto en el que trabajas.</p></div>
+    <div class="card"><h3>2. Pega el texto de abajo</h3><p>Le pide a la IA que lea el kit, revise tu proyecto y te explique todo en palabras sencillas, sin cambiar nada todavía.</p></div>
+    <div class="card"><h3>3. Acepta lo que te parezca bien</h3><p>Te muestra el plan. Apruebas lo que quieras y la IA instala solo eso.</p></div>
+  </div>
+  <div class="pedido" style="margin-top:20px;position:relative">
+<pre id="pedidoTxt" style="white-space:pre-wrap">Lee el kit «IA sin daños» en https://github.com/inematds/ia-sem-estrago (el README explica todo, incluida la instalación).
+Después revisa este proyecto y respóndeme en español sencillo:
+1. ¿Qué cosas serían irreversibles si te equivocaras aquí (borrar, contraseñas, enviar algo fuera)?
+2. ¿Qué prueba o comprobación demuestra que una tarea está terminada en este proyecto?
+3. ¿Qué partes del kit me convienen y cuáles no?
+No cambies nada todavía. Muéstrame el plan y espera a que te diga que sí.</pre>
+    <button class="btn" id="copiarPedido" style="margin-top:10px">Copiar el texto</button>
+  </div>
+  <p class="mut" style="margin-top:16px">El kit está preparado para <strong>Claude Code</strong>: los bloqueos y las pruebas son ajustes de ese programa. <strong>Codex</strong> también puede leer el kit y decirte si sirve para tu proyecto.</p>
+  <div class="card" style="margin-top:16px"><h3>🛠️ ¿Tienes conocimientos técnicos y prefieres instalarlo a mano?</h3><p>La instalación paso a paso, con los comandos, los archivos y las pruebas, está en el README de GitHub.</p><p><a class="btn ghost" href="https://github.com/inematds/ia-sem-estrago/blob/main/README.es.md" target="_blank" rel="noopener">Ver la instalación técnica</a></p></div>
+</div></section>
+
+<section id="prova"><div class="wrap">
+  <span class="chip">La prueba</span>
+  <h2>Lo probamos de verdad: la IA dijo «listo» demasiado pronto y <span class="amb">el kit no la dejó</span></h2>
+  <p class="sub">Escondimos un error a propósito en un proyecto pequeño: una suma que restaba. Después solo le pedimos a Claude: «responde solo: listo».</p>
+  <div class="prova">
+    <ol class="tl">
+      <li><b>Claude dijo «listo» e intentó terminar.</b><br><span class="mut">Sin el kit, la conversación habría acabado ahí, con el error escondido.</span></li>
+      <li><b>La prueba se ejecutó, vio que la suma estaba mal y le indicó que volviera.</b><br><span class="mut">También explicó qué había fallado.</span></li>
+      <li><b>Claude encontró el error, lo corrigió y volvió a comprobarlo.</b><br><span class="mut">Solo terminó cuando pasó la prueba.</span></li>
+    </ol>
+    <blockquote>«La prueba fallaba porque la suma restaba en vez de sumar. Lo cambié y volví a comprobarlo: la prueba pasa».</blockquote>
+    <p class="rod">Respuesta final de Claude, en Claude Code con la suscripción, el 17/11/2026. Registro completo: <a href="https://github.com/inematds/ia-sem-estrago/blob/main/exemplo/PROVA.md" target="_blank" rel="noopener">PROVA.md</a>.</p>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <span class="chip">Preguntas frecuentes</span>
+  <h2>Antes de <span class="amb">empezar</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>¿Tengo que saber programar?</h3><p>No. Pegas el texto, lees el plan que te muestra la IA y dices sí o no. Ella se encarga de instalarlo.</p></div>
+    <div class="card"><h3>¿Sirve solo para código?</h3><p>No. Sirve para cualquier trabajo que la IA haga con tus archivos: textos, hojas de cálculo, informes y sitios. En un informe, «listo» puede significar «todas las cifras coinciden con la hoja de cálculo».</p></div>
+    <div class="card"><h3>¿La IA no pierde el control?</h3><p>Hay menos clics, pero no menos control. Lo irreversible sigue bloqueado y tú decides qué significa «listo».</p></div>
+    <div class="card"><h3>¿Y si ya tengo mis propios ajustes?</h3><p>El kit no borra nada tuyo. Le pide a la IA que te muestre el plan primero. Luego combina lo que apruebes con lo que ya tienes.</p></div>
+    <div class="card"><h3>¿Cuánto cuesta?</h3><p>Nada. El kit y esta guía son gratis. Solo necesitas la IA que ya usas.</p></div>
+    <div class="card"><h3>¿Y si abro Claude «sin restricciones»?</h3><p>Quienes lo abren con <code>--dangerously-skip-permissions</code> siguen protegidos: lo probamos y el bloqueo y la prueba de «listo» siguieron funcionando. Lo que desaparece es el filtro del modo automático, que revisaba todo lo demás. Por eso preferimos el modo automático y usar el kit en el proyecto.</p></div>
+    <div class="card"><h3>¿Y el navegador y los conectores?</h3><p>Si Claude abre el navegador o usa Gmail y Drive, la caja cerrada no lo cubre. El kit incluye una regla para que la IA te pida confirmación antes de enviar, borrar o publicar.</p></div>
+    <div class="card"><h3>¿Funciona en cualquier computadora?</h3><p>Funciona donde se ejecuta Claude Code: Windows, Mac y Linux. La IA lo comprueba durante el análisis.</p></div>
+  </div>
+  <p class="fonte" style="margin-top:22px">Y tú, ¿qué hace hoy la IA en tu trabajo que <strong>sería irreversible</strong> si algo saliera mal? Gratis en inema.club, desde cualquier lugar con internet.</p>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Claude Code</div><div class="pill">bash</div><div class="pill">Python 3</div><div class="pill">MIT</div>
+    <p style="margin-top:18px">IA sin daños · gratis en inema.club, accesible desde internet ·
+      <a href="https://github.com/inematds/ia-sem-estrago">inematds/ia-sem-estrago</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='ia-sem-estrago-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+  (function(){
+    var bt=document.getElementById('copiarPedido'), tx=document.getElementById('pedidoTxt');
+    if(!bt||!tx) return;
+    bt.addEventListener('click',function(){
+      try{ navigator.clipboard.writeText(tx.textContent).then(function(){ bt.textContent='Copiado ✓'; setTimeout(function(){bt.textContent='Copiar el texto';},2000); }); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
