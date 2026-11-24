@@ -15,7 +15,7 @@
 - Seção "De onde vem" no topo do guia e "Baseado na Anthropic" nos READMEs: palestra do time do Claude Code, artigos oficiais (auto mode: 93% dos pedidos aceitos; sandbox: 84% menos pedidos) e cada peça ligada à documentação oficial.
 
 ## 1.1.3 — 17/11/2026
-- Novo nome: **IA sem estrago** (antes "Fora do volante"). Repositório `inematds/ia-sem-estrago`; o endereço antigo do GitHub redireciona.
+- Novo nome: **IA sem estrago** (antes "Fora do volante"). Repositório `linnoff88-dev/ia-sem-estrago`; o endereço antigo do GitHub redireciona.
 - Guia reescrito para leigos: o ganho (antes e depois), como muda o dia, como funciona sem jargão, como começar pedindo à IA para analisar o kit, a prova e perguntas comuns. A parte técnica saiu do guia e foi para o README ("Instalação técnica").
 - `ferramentas/conferir_volante.py` virou `ferramentas/conferir.py`; a saída final é `ia sem estrago: ok`.
 - Banners novos (PT/EN/ES) com o novo nome.

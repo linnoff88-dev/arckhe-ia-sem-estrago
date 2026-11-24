@@ -2,13 +2,13 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![IA sin daños](guia/assets/banner-es.jpg)](https://inematds.github.io/ia-sem-estrago/guia/es/)
+[![IA sin daños](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/
 
 **La IA trabaja sola y no estropea lo que no tiene vuelta atrás.** Basado en la documentación oficial de Claude Code y en las recomendaciones de los ingenieros de Anthropic. Le pides la tarea y te ocupas de otra cosa. Cuando vuelves, ya está hecha y probada. No se ha borrado ninguna carpeta, no se ha leído ninguna contraseña y Claude no ha dicho «listo» antes de tiempo.
 
 ## 📖 Guía
 
-Para entender qué hace el kit y cómo cambia tu día a día (sin tecnicismos): **https://inematds.github.io/ia-sem-estrago/guia/es/**
+Para entender qué hace el kit y cómo cambia tu día a día (sin tecnicismos): **https://linnoff88-dev.github.io/
 
 🎬 Video (ya usas Claude Code, en portugués): https://www.youtube.com/watch?v=uBUpckFw1Xg  
 🎬 Video (estás empezando, en portugués): https://www.youtube.com/watch?v=JBiVZj8z-Ms
@@ -38,7 +38,7 @@ El 14 % (personas que aprueban una cosa a la vez) y el 89 % (modo automático) s
 Abre Claude Code o Codex en la carpeta de tu proyecto y pega:
 
 ```text
-Lee el kit «IA sin daños» en https://github.com/inematds/ia-sem-estrago (el README lo explica todo, incluida la instalación).
+Lee el kit «IA sin daños» en https://github.com/linnoff88-dev/ia-sem-estrago (el README lo explica todo, incluida la instalación).
 Después, revisa este proyecto y respóndeme en español sencillo:
 1. ¿Qué cosas serían irreversibles si te equivocaras (borrar, contraseñas, enviar algo al exterior)?
 2. ¿Qué prueba o comprobación demuestra que una tarea está lista en este proyecto?
@@ -125,7 +125,7 @@ Cambia `~/meu-projeto` por la carpeta de tu proyecto. ⚙️ = script · 🧠 = 
 
 | # | Paso | Comando | Quién |
 |---|---|---|---|
-| 0 | Descargar el kit | `git clone https://github.com/inematds/ia-sem-estrago.git && cd ia-sem-estrago` | 🧠 tú |
+| 0 | Descargar el kit | `git clone https://github.com/linnoff88-dev/ia-sem-estrago.git && cd ia-sem-estrago` | 🧠 tú |
 | 1 | Revisar tu proyecto (los fallos la primera vez son normales) | `python3 ferramentas/conferir.py ~/meu-projeto` | ⚙️ script |
 | 2 | Copiar la configuración y el hook | `cp -rn kit/.claude ~/meu-projeto/` y `echo ".claude/.pronto-bloqueios" >> ~/meu-projeto/.gitignore` (`-n` no sobrescribe; si ya existe `settings.json`, combina las claves a mano) | 🧠 tú |
 | 3 | Definir la comprobación de «listo» (para texto: combina `kit/exemplos/pronto-texto.json`) | `echo "python3 -m unittest discover -s tests -q" > ~/meu-projeto/.claude/pronto.cmd` (cámbialo por la prueba de tu proyecto) | 🧠 tú |
@@ -152,4 +152,4 @@ El hook funcionó de verdad en Claude Code 2.1.326, con la suscripción, el 17/1
 
 Charla «Rethinking Claude Code Best Practices», de Lydia Hallie (equipo de Claude Code, Anthropic, AI Engineer): https://www.youtube.com/watch?v=vlfCjWuv4es. Sintaxis verificada en la documentación oficial de Claude Code (permissions, sandboxing, hooks, auto mode) el 17/11/2026. El estudio del 14 % y el 89 % solo se mostró en la charla. Resumen de terceros de la misma charla, que inspiró el bloqueo de conectores y el «listo» para texto: «Anthropic Engineer Explains: The New Way to Use Claude Code», de Nate Herk (PDF); verificamos cada punto en la documentación antes de incluirlo en el kit.
 
-Gratis en [inema.club](https://inema.club), directamente en internet. Licencia MIT.
+Gratis en [ARCKHÉ AI](https://ARCKHÉ AI), directamente en internet. Licencia MIT.

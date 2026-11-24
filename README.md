@@ -1,4 +1,4 @@
-﻿# ðŸ›¡ï¸ IA sem estrago
+# ðŸ›¡ï¸ IA sem estrago
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -8,13 +8,13 @@
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
-[![IA sem estrago](guia/assets/banner.jpg)](https://inematds.github.io/ia-sem-estrago/guia/)
+[![IA sem estrago](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **A IA trabalha sozinha e nÃ£o estraga o que nÃ£o tem volta.** Baseado na documentaÃ§Ã£o oficial do Claude Code e nas recomendaÃ§Ãµes dos engenheiros da Anthropic. VocÃª pede a tarefa e vai fazer outra coisa. Quando volta, ela estÃ¡ feita e testada. Nenhuma pasta foi apagada, nenhuma senha foi lida, e o Claude nÃ£o disse "pronto" antes da hora.
 
 ## ðŸ“– Guia
 
-Para entender o que o kit faz e como ele muda o seu dia (sem parte tÃ©cnica): **https://inematds.github.io/ia-sem-estrago/guia/**
+Para entender o que o kit faz e como ele muda o seu dia (sem parte tÃ©cnica): **https://linnoff88-dev.github.io/
 
 ðŸŽ¬ VÃ­deo (quem jÃ¡ usa o Claude Code): https://www.youtube.com/watch?v=uBUpckFw1Xg  
 ðŸŽ¬ VÃ­deo (quem estÃ¡ comeÃ§ando): https://www.youtube.com/watch?v=JBiVZj8z-Ms
@@ -44,7 +44,7 @@ Os 14% (pessoas que aprovam um por um) e 89% (modo automÃ¡tico) foram mostrado
 Abra o Claude Code, ou o Codex, na pasta do seu projeto e cole:
 
 ```text
-Leia o kit "IA sem estrago" em https://github.com/inematds/ia-sem-estrago (o README explica tudo, inclusive a instalaÃ§Ã£o).
+Leia o kit "IA sem estrago" em https://github.com/linnoff88-dev/ia-sem-estrago (o README explica tudo, inclusive a instalaÃ§Ã£o).
 Depois olhe este projeto e me responda em portuguÃªs simples:
 1. O que aqui nÃ£o teria volta se vocÃª errasse (apagar, senhas, enviar algo para fora)?
 2. Qual teste ou conferÃªncia prova que uma tarefa ficou pronta neste projeto?
@@ -131,7 +131,7 @@ Troque `~/meu-projeto` pela pasta do seu projeto. âš™ï¸ = script Â· ð
 
 | # | Passo | Comando | Quem |
 |---|---|---|---|
-| 0 | Baixar o kit | `git clone https://github.com/inematds/ia-sem-estrago.git && cd ia-sem-estrago` | ðŸ§  vocÃª |
+| 0 | Baixar o kit | `git clone https://github.com/linnoff88-dev/ia-sem-estrago.git && cd ia-sem-estrago` | ðŸ§  vocÃª |
 | 1 | Conferir o seu projeto (falhas na 1Âª vez sÃ£o normais) | `python3 ferramentas/conferir.py ~/meu-projeto` | âš™ï¸ script |
 | 2 | Copiar a configuraÃ§Ã£o e o hook | `cp -rn kit/.claude ~/meu-projeto/` e `echo ".claude/.pronto-bloqueios" >> ~/meu-projeto/.gitignore` (o `-n` nÃ£o sobrescreve; se jÃ¡ houver `settings.json`, junte as chaves Ã  mÃ£o) | ðŸ§  vocÃª |
 | 3 | Dizer qual Ã© a checagem de "pronto" (texto: junte `kit/exemplos/pronto-texto.json`) | `echo "python3 -m unittest discover -s tests -q" > ~/meu-projeto/.claude/pronto.cmd` (troque pelo teste do seu projeto) | ðŸ§  vocÃª |
@@ -158,7 +158,7 @@ O hook rodou de verdade no Claude Code 2.1.326, pela assinatura, em 17/11/2026. 
 
 Palestra "Rethinking Claude Code Best Practices", de Lydia Hallie (time do Claude Code, Anthropic, AI Engineer): https://www.youtube.com/watch?v=vlfCjWuv4es. Sintaxe conferida na documentaÃ§Ã£o oficial do Claude Code (permissions, sandboxing, hooks, auto mode) em 17/11/2026. O estudo dos 14% e 89% foi sÃ³ mostrado na palestra. Resumo de terceiros da mesma palestra, que inspirou a trava de conectores e o "pronto" de texto: "Anthropic Engineer Explains: The New Way to Use Claude Code", de Nate Herk (PDF); conferimos cada item na documentaÃ§Ã£o antes de pÃ´r no kit.
 
-GrÃ¡tis no [inema.club](https://inema.club), direto na internet. LicenÃ§a MIT.
+GrÃ¡tis no [ARCKHÉ AI](https://ARCKHÉ AI), direto na internet. LicenÃ§a MIT.
 
 ---
 

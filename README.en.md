@@ -2,13 +2,13 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
-[![No-Damage AI](guia/assets/banner-en.jpg)](https://inematds.github.io/ia-sem-estrago/guia/en/)
+[![No-Damage AI](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **AI works on its own without damaging anything you can’t undo.** Based on the official Claude Code documentation and recommendations from Anthropic’s engineers. You give it a task and go do something else. When you come back, the task is done and tested. No folders have been deleted, no passwords have been read, and Claude didn’t say “done” before it was ready.
 
 ## 📖 Guide
 
-To understand what the kit does and how it changes your day (without the technical details): **https://inematds.github.io/ia-sem-estrago/guia/en/**
+To understand what the kit does and how it changes your day (without the technical details): **https://linnoff88-dev.github.io/
 
 🎬 Video (already using Claude Code, in Portuguese): https://www.youtube.com/watch?v=uBUpckFw1Xg  
 🎬 Video (just starting, in Portuguese): https://www.youtube.com/watch?v=JBiVZj8z-Ms
@@ -38,7 +38,7 @@ The 14% (people who approve one request at a time) and 89% (auto mode) were show
 Open Claude Code or Codex in your project folder and paste:
 
 ```text
-Read the "No-Damage AI" kit at https://github.com/inematds/ia-sem-estrago (the README explains everything, including installation).
+Read the "No-Damage AI" kit at https://github.com/linnoff88-dev/ia-sem-estrago (the README explains everything, including installation).
 Then look at this project and answer in plain English:
 1. What could not be undone if you made a mistake here (deleting things, passwords, sending something outside)?
 2. What test or check proves that a task is done in this project?
@@ -125,7 +125,7 @@ Replace `~/meu-projeto` with your project folder. ⚙️ = script · 🧠 = you 
 
 | # | Step | Command | Who |
 |---|---|---|---|
-| 0 | Download the kit | `git clone https://github.com/inematds/ia-sem-estrago.git && cd ia-sem-estrago` | 🧠 you |
+| 0 | Download the kit | `git clone https://github.com/linnoff88-dev/ia-sem-estrago.git && cd ia-sem-estrago` | 🧠 you |
 | 1 | Check your project (failures the first time are normal) | `python3 ferramentas/conferir.py ~/meu-projeto` | ⚙️ script |
 | 2 | Copy the configuration and hook | `cp -rn kit/.claude ~/meu-projeto/` and `echo ".claude/.pronto-bloqueios" >> ~/meu-projeto/.gitignore` (`-n` won’t overwrite anything; if `settings.json` already exists, merge the keys by hand) | 🧠 you |
 | 3 | Set the “done” check (for text, add `kit/exemplos/pronto-texto.json`) | `echo "python3 -m unittest discover -s tests -q" > ~/meu-projeto/.claude/pronto.cmd` (replace this with your project’s test) | 🧠 you |
@@ -152,4 +152,4 @@ The hook ran for real in Claude Code 2.1.326, using the subscription, on 11/17/2
 
 Talk: “Rethinking Claude Code Best Practices,” by Lydia Hallie (Claude Code team, Anthropic, AI Engineer): https://www.youtube.com/watch?v=vlfCjWuv4es. Syntax checked against the official Claude Code documentation (permissions, sandboxing, hooks, auto mode) on 11/17/2026. The 14% and 89% study was only shown in the talk. A third-party summary of the same talk, which inspired the connector block and the text “done” check: “Anthropic Engineer Explains: The New Way to Use Claude Code,” by Nate Herk (PDF); we checked every item against the documentation before adding it to the kit.
 
-Free at [inema.club](https://inema.club), available online. MIT License.
+Free at [ARCKHÉ AI](https://ARCKHÉ AI), available online. MIT License.
