@@ -31,7 +31,7 @@ class Hook(unittest.TestCase):
     def test_checagem_falha_sai_com_2_e_explica(self):
         r = rodar_hook(self.p, "echo teste quebrou; false")
         self.assertEqual(r.returncode, 2)
-        self.assertIn("Ainda não está pronto", r.stderr)
+        self.assertIn("Ainda nêo está pronto", r.stderr)
         self.assertIn("teste quebrou", r.stderr)
 
     def test_checagem_passa_sai_com_0(self):
@@ -107,7 +107,7 @@ class Conferidor(unittest.TestCase):
             self.assertEqual({t for _, t, _ in achados}, {1, 2, 3})
             self.assertIn("saída 1", textos)
             self.assertIn("sandbox desligado", textos)
-            self.assertIn("PostToolUse não bloqueia", textos)
+            self.assertIn("PostToolUse nêo bloqueia", textos)
             self.assertNotIn("segredo .env", textos)
             self.assertEqual(cv.main(["x", str(p)]), 1)
 

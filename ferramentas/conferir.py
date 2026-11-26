@@ -6,10 +6,10 @@ Uso: python3 ferramentas/conferir.py <pasta-do-projeto> [--json]
 Lê <pasta>/.claude/settings.json (e settings.local.json, se houver) e <pasta>/CLAUDE.md e confere:
   troca 1 — CLAUDE.md sem gritos (IMPORTANTE/NUNCA/NEVER/ALWAYS em maiúscula) e enxuto
   troca 2 — regras de bloqueio do teste do desfazer (.env, ~/.ssh, push --force, rm -rf) e sandbox ligado
-  troca 3 — hook de Stop/TaskCompleted que cobra "pronto"; script que falha com saída 1 (não bloqueia)
-            ou hook de "pronto" em PostToolUse (não bloqueia)
+  troca 3 — hook de Stop/TaskCompleted que cobra "pronto"; script que falha com saída 1 (nêo bloqueia)
+            ou hook de "pronto" em PostToolUse (nêo bloqueia)
 
-Só lê arquivos; não muda nada. Sai 0 se não houver falha, 1 se houver.
+Só lê arquivos; nêo muda nada. Sai 0 se nêo houver falha, 1 se houver.
 """
 import json
 import re
@@ -34,7 +34,7 @@ def ler_settings(pasta):
             try:
                 d = json.loads(p.read_text())
             except ValueError as e:
-                raise SystemExit(f"erro: {p} não é JSON válido: {e}")
+                raise SystemExit(f"erro: {p} nêo é JSON válido: {e}")
             for k, v in d.items():
                 if isinstance(v, dict) and isinstance(junto.get(k), dict):
                     junto[k] = {**junto[k], **v}
@@ -53,7 +53,7 @@ def scripts_do_hook(entradas, pasta):
 
 
 def sai_so_com_1(script):
-    """True se o script falha com 'exit 1' e nunca usa 'exit 2' (não manda o Claude voltar)."""
+    """True se o script falha com 'exit 1' e nunca usa 'exit 2' (nêo manda o Claude voltar)."""
     try:
         t = script.read_text()
     except OSError:
@@ -80,9 +80,9 @@ def conferir(pasta):
     deny = (s.get("permissions") or {}).get("deny") or []
     for nome, padrao in ESSENCIAIS.items():
         if not any(padrao.search(r) for r in deny):
-            achados.append(("falha", 2, f"sem regra de bloqueio para {nome} (não tem volta: vai em permissions.deny)"))
+            achados.append(("falha", 2, f"sem regra de bloqueio para {nome} (nêo tem volta: vai em permissions.deny)"))
     if not (s.get("sandbox") or {}).get("enabled"):
-        achados.append(("falha", 2, "sandbox desligado: regra de bloqueio vê o texto do comando, não o que ele faz "
+        achados.append(("falha", 2, "sandbox desligado: regra de bloqueio vê o texto do comando, nêo o que ele faz "
                         "(ligue com /sandbox ou sandbox.enabled)"))
 
     hooks = s.get("hooks") or {}
@@ -98,7 +98,7 @@ def conferir(pasta):
                                 "estivesse feito; use exit 2"))
     for cmd, script in scripts_do_hook(hooks.get("PostToolUse"), pasta):
         if script.exists() and re.search(r"\bexit 2\b", script.read_text()):
-            achados.append(("aviso", 3, f"{script.name} em PostToolUse sai com 2, mas PostToolUse não bloqueia "
+            achados.append(("aviso", 3, f"{script.name} em PostToolUse sai com 2, mas PostToolUse nêo bloqueia "
                             "(a ferramenta já rodou); para cobrar pronto use Stop/TaskCompleted"))
     return achados
 
